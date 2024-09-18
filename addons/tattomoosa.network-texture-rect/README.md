@@ -1,24 +1,10 @@
 <div align="center">
-	<br/>
-	<br/>
-	<img src="addons/tattomoosa.network-texture-rect/icons/NetworkTextureRect.svg" width="100"/>
-	<br/>
-	<h1>
-		NetworkTextureRect
-		<br/>
-		<sub>
-		<sub>
-		<sub>
-		Dead simple network images, for <a href="https://godotengine.org/">Godot</a>
-		</sub>
-		</sub>
-		</sub>
-		<br/>
-		<br/>
-		<br/>
-	</h1>
-	<br/>
-	<br/>
+	<br/><br/><img width="100"
+	src="addons/tattomoosa.network-texture-rect/icons/NetworkTextureRect.svg"/><br/><h1> NetworkTextureRect <br/><sub><sub><sub>
+	Dead simple network images,
+	for <a href="https://godotengine.org/">
+	Godot</a>
+	</sub></sub></sub><br/><br/><br/></h1><br/><br/>
 	<!-- <img src="./promo/spinner-splash.png" height="180"> -->
 	<!-- <img src="./promo/in-editor.png" height="180"> -->
 	<!-- <img src="./readme_images/editor_view.png" height="140"> -->
