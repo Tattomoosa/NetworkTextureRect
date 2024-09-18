@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://1gsrt7s603yv"]
+
+[ext_resource type="Script" path="res://addons/tattomoosa.network-texture-rect/network_texture_rect.gd" id="1_wt6n8"]
+[ext_resource type="PackedScene" uid="uid://boxxcsnoop6m3" path="res://examples/custom-loading-placeholder.tscn" id="2_gwlel"]
+[ext_resource type="PackedScene" uid="uid://ckivmmdcs7lsq" path="res://examples/custom-error-placeholder.tscn" id="3_hdire"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ry21"]
+bg_color = Color(0, 0, 0, 0.54902)
+
+[node name="Control" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 2
+
+[node name="NetworkTextureRect" type="TextureRect" parent="HFlowContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+stretch_mode = 5
+script = ExtResource("1_wt6n8")
+url = "https://loremflickr.com/"
+auto_request = null
+clear_on_play = true
+
+[node name="NetworkTextureRect3" type="TextureRect" parent="HFlowContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+script = ExtResource("1_wt6n8")
+auto_request = null
+clear_on_play = true
+metadata/_edit_group_ = true
+
+[node name="Panel" type="Panel" parent="HFlowContainer/NetworkTextureRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ry21")
+
+[node name="NetworkTextureRect2" type="TextureRect" parent="HFlowContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+script = ExtResource("1_wt6n8")
+auto_request = null
+clear_on_play = true
+
+[node name="NetworkTextureRect4" type="TextureRect" parent="HFlowContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+script = ExtResource("1_wt6n8")
+url = "https://loremflickr.com/"
+auto_request = null
+clear_on_play = true
+loading_placeholder_scene = ExtResource("2_gwlel")
+error_placeholder_scene = ExtResource("3_hdire")
+
+[node name="NetworkTextureRect5" type="TextureRect" parent="HFlowContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+script = ExtResource("1_wt6n8")
+auto_request = null
+clear_on_play = true
+
+[node name="NetworkTextureRect6" type="TextureRect" parent="HFlowContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+script = ExtResource("1_wt6n8")
+auto_request = null
+clear_on_play = true
