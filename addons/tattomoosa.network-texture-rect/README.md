@@ -5,8 +5,8 @@
 	for <a href="https://godotengine.org/">
 	Godot</a>
 	</sub></sub></sub><br/><br/><br/></h1><br/><br/>
-	<!-- <img src="./promo/spinner-splash.png" height="180"> -->
-	<!-- <img src="./promo/in-editor.png" height="180"> -->
+	<img src="./promo/loading_state_previews.png" height="180">
+	<img src="./promo/editor_inspector.png" height="180">
 	<!-- <img src="./readme_images/editor_view.png" height="140"> -->
 	<br/>
 	<br/>

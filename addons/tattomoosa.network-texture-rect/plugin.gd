@@ -14,7 +14,9 @@ func _exit_tree():
 # my_inspector_plugin.gd
 class NetworkTextureRectEditorInspectorPlugin extends EditorInspectorPlugin:
 
-	const download_icon := preload("./icons/Download.svg")
+	const DOWNLOAD_ICON := preload("./icons/Download.svg")
+	const DOWNLOAD_CANCEL := preload("./icons/StatusError.svg")
+	const CLEAR_ICON := preload("./icons/Clear.svg")
 
 	func _can_handle(object: Object):
 		return object is _NetworkTextureRect
@@ -40,19 +42,25 @@ class NetworkTextureRectEditorInspectorPlugin extends EditorInspectorPlugin:
 			hbox.add_child(label)
 			var action_button := Button.new()
 			action_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			# action_button.icon_alignment = HORIZONTAL_ALIGNMENT_LEFT
+			# action_button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 
 			match o.status:
 				_NetworkTextureRect.ImageLoadingStatus.IDLE:
 					action_button.text = "Load Image"
+					action_button.icon = DOWNLOAD_ICON
 					action_button.pressed.connect(func(): o.request())
 				_NetworkTextureRect.ImageLoadingStatus.LOADING:
 					action_button.text = "Cancel"
+					action_button.icon = DOWNLOAD_CANCEL
 					action_button.pressed.connect(func(): o.cancel())
 				_NetworkTextureRect.ImageLoadingStatus.COMPLETED:
 					action_button.text = "Clear"
+					action_button.icon = CLEAR_ICON
 					action_button.pressed.connect(func(): o.clear())
 				_NetworkTextureRect.ImageLoadingStatus.ERRORED:
 					action_button.text = "Clear"
+					action_button.icon = CLEAR_ICON
 					action_button.pressed.connect(func(): o.clear())
 			hbox.add_child(action_button)
 

@@ -20,6 +20,8 @@ enum ImageLoadingStatus {
 		if status == value:
 			return
 		status = value
+		if !is_node_ready():
+			await ready
 		if status in [ImageLoadingStatus.IDLE, ImageLoadingStatus.ERRORED, ImageLoadingStatus.COMPLETED]:
 			_hide_or_free_loading_placeholder()
 		if status in [ImageLoadingStatus.IDLE, ImageLoadingStatus.LOADING, ImageLoadingStatus.COMPLETED]:
@@ -162,7 +164,7 @@ func _attempt_load_buffer(image: Image, buffer: PackedByteArray, content_type: S
 		&"image/png":
 			error = image.load_png_from_buffer(buffer)
 		&"image/svg+xml":
-			error = image.load_png_from_buffer(buffer)
+			error = image.load_svg_from_buffer(buffer)
 		&"image/webp":
 			error = image.load_webp_from_buffer(buffer)
 		# tga not supported on web
