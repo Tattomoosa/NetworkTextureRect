@@ -54,6 +54,8 @@ enum ImageLoadingStatus {
 
 @export_group("Loading Placeholder")
 
+@export var use_loading_placeholder := true
+
 ## Scene to display when loading
 @export var loading_placeholder_scene : PackedScene
 
@@ -100,6 +102,8 @@ func _ready():
 			request()
 
 func _create_or_show_loading_placeholder():
+	if !use_loading_placeholder:
+		return
 	if !_loading_placeholder:
 		if loading_placeholder_scene:
 			_loading_placeholder = loading_placeholder_scene.instantiate()
@@ -138,7 +142,6 @@ func _set_network_texture(result: int, response_code: int, headers: PackedString
 	if error != OK:
 		_set_image_loading_errored(error)
 		return
-	_loading_placeholder.hide()
 	texture = ImageTexture.create_from_image(_image)
 	completed.emit()
 	status = ImageLoadingStatus.COMPLETED
@@ -158,16 +161,34 @@ func _free_error_placeholder():
 
 func _attempt_load_buffer(image: Image, buffer: PackedByteArray, content_type: String) -> int:
 	var error := 15
+
+	# idea from https://github.com/CypherDoesStuff/CyberAssets/blob/main/addons/cyberassets/Scripts/AssetApi.gd
+	var png_signature = PackedByteArray([137, 80, 78, 71, 13, 10, 26, 10])
+	var jpg_signature = PackedByteArray([255, 216, 255])
+	var webp_signature = PackedByteArray([82, 73, 70, 70])
+	var bmp_signature = PackedByteArray([66, 77])
+
+	if buffer.slice(0,8) == png_signature:
+		error = image.load_png_from_buffer(buffer)
+	elif buffer.slice(0,3) == jpg_signature:
+		error = image.load_jpg_from_buffer(buffer)
+	elif buffer.slice(0,4) == webp_signature:
+		error = image.load_webp_from_buffer(buffer)
+	elif buffer.slice(0,2) == bmp_signature:
+		error = image.load_bmp_from_buffer(buffer)
+	if error == OK:
+		return error
+
 	match content_type:
-		&"image/jpeg":
-			error = image.load_jpg_from_buffer(buffer)
-		&"image/png":
-			error = image.load_png_from_buffer(buffer)
+		# &"image/jpeg":
+		# 	error = image.load_jpg_from_buffer(buffer)
+		# &"image/png":
+		# 	error = image.load_png_from_buffer(buffer)
 		&"image/svg+xml":
 			error = image.load_svg_from_buffer(buffer)
-		&"image/webp":
-			error = image.load_webp_from_buffer(buffer)
-		# tga not supported on web
+		# &"image/webp":
+		# 	error = image.load_webp_from_buffer(buffer)
+		# tga not supported on web?
 		&"image/ktx":
 			error = image.load_ktx_from_buffer(buffer)
 
@@ -216,14 +237,15 @@ class DefaultLoadingPlaceholderSpinner extends Control:
 		)
 
 class DefaultErrorPlaceholderIcon extends TextureRect:
-	const ICON := preload("./icons/StatusError.svg")
+	# const ICON := preload("./icons/StatusError.svg")
 	const COLOR := Color(0.996, 0.373, 0.373)
 	const STROKE := 4
 
 	func _ready():
+		var icon := get_theme_icon("FileDeadBigThumb", "EditorIcons")
 		set_anchors_and_offsets_preset(PRESET_FULL_RECT)
 		stretch_mode = STRETCH_KEEP_CENTERED
-		texture = ICON
+		texture = icon
 	
 	func _draw():
 		var stroke_inset := Vector2(STROKE / 2, STROKE / 2)
