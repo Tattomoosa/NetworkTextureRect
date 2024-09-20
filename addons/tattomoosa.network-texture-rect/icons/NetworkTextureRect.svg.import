@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbivlh2jbmxa3"
-path="res://.godot/imported/NetworkTextureRect.svg-8350b14ba886e8fd9b2d4dd226bf91fe.ctex"
+path="res://.godot/imported/NetworkTextureRect.svg-6ff4e03ccd1fee2b2259bea984e8eb52.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/tattomoosa.network-texture-rect/icons/NetworkTextureRect.svg"
-dest_files=["res://.godot/imported/NetworkTextureRect.svg-8350b14ba886e8fd9b2d4dd226bf91fe.ctex"]
+source_file="res://addons/tattomoosa.network_texture_rect/icons/NetworkTextureRect.svg"
+dest_files=["res://.godot/imported/NetworkTextureRect.svg-6ff4e03ccd1fee2b2259bea984e8eb52.ctex"]
 
 [params]
 

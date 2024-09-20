@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvdbncyr53egs"
-path="res://.godot/imported/StatusError.svg-0feb2aab062eb5893b3b587f48cee3fe.ctex"
+path="res://.godot/imported/StatusError.svg-48a37d7146f66aac586a60679a99dd14.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/tattomoosa.network-texture-rect/icons/StatusError.svg"
-dest_files=["res://.godot/imported/StatusError.svg-0feb2aab062eb5893b3b587f48cee3fe.ctex"]
+source_file="res://addons/tattomoosa.network_texture_rect/icons/StatusError.svg"
+dest_files=["res://.godot/imported/StatusError.svg-48a37d7146f66aac586a60679a99dd14.ctex"]
 
 [params]
 
