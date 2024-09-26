@@ -1,1 +1,1 @@
-addons/tattomoosa.network-texture-rect/README.md
+addons/tattomoosa.network_texture_rect/README.md
