@@ -1,6 +1,6 @@
 <div align="center">
 	<br/><br/><img width="100"
-	src="addons/tattomoosa.network-texture-rect/icons/NetworkTextureRect.svg"/><br/><h1> NetworkTextureRect <br/><sub><sub><sub>
+	src="addons/tattomoosa.network_texture_rect/icons/NetworkTextureRect.svg"/><br/><h1> NetworkTextureRect <br/><sub><sub><sub>
 	Dead simple network images,
 	for <a href="https://godotengine.org/">
 	Godot</a>
